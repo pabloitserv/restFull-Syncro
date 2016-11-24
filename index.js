@@ -26,7 +26,7 @@ function getEmp(){
 
   conn.connect( function ( err ){
     if (err) {
-      throw err;
+
       console.log(err);
       return;
     }
@@ -34,7 +34,7 @@ function getEmp(){
     req.query("SELECT fun.[ID_FUNCIONARIO] as iduser,fun.[NOME] as name, fun.[CPF] as cpf,case when cargo.DESCRICAO like '%INSTALADOR%' then 'GERAL'else    'MONITOR'end as role, UPPER(mun.DESCRICAO) as city,  case  when fun.Data_demissao IS NULL then 1 else 0 end as active FROM [ITSNET].[dbo].[tbl_FUNCIONARIOS] as fun left join [ITSNET].[dbo].[TBL_FUNCAO] as cargo on fun.ID_FUNCAO=cargo.ID_FUNCAO join [ITSNET].[dbo].[TBL_ENDERECO_EMPRESA] as cidade on fun.EMPRESA=cidade.ID_EMPRESA join tbl_MUNICIPIOS as mun on cidade.MUNICIPIO=mun.COD_MUNICIPIO ORDER BY fun.[NOME] ASC", function ( err, recordset ){
       if (err) {
 
-        throw err;
+
         console.log(err);
 
       }else{
@@ -60,7 +60,7 @@ function getEmp(){
 
   conn.connect( function ( err ){
     if (err) {
-      throw err;
+
       console.log(err);
       return;
     }
@@ -68,7 +68,7 @@ function getEmp(){
     req.query("SELECT  ID_VEICULO, PLACA ,MODELO FROM dbo.tbl_VEICULOS WHERE ATIVO =1 AND SYNCHRO=1 ORDER BY PLACA ASC;", function ( err, recordset ){
       if (err) {
 
-        throw err;
+
         console.log(err);
 
       }else{
@@ -87,6 +87,6 @@ getEmp();
 
 });
 
-app.listen(3001, function(){
-  console.log("This service running to port "+ 3001 +", and consume the database ITSNET.");
+app.listen(3000, function(){
+  console.log("This service running to port "+ 3000 +", and consume the database ITSNET.");
 });
