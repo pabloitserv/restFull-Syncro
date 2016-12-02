@@ -70,10 +70,7 @@ app.get('/vehicle', function(req, res) {
                     console.log(err);
 
                 } else {
-
-                    console.log(recordset);
                     res.json(recordset);
-
                 }
                 conn.close();
             });
