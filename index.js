@@ -38,7 +38,6 @@ app.get('/login', function(req, res) {
 
                 } else {
 
-                    console.log(recordset);
                     res.json(recordset);
 
                 }
@@ -86,6 +85,7 @@ app.get('/vehicle', function(req, res) {
 
 });
 
-app.listen(3030, function() {
-    console.log("This service running to port " + 3030 + ", and consume the database ITSNET.");
+var port = process.env.PORT || 3001;
+app.listen(port, function() {
+    console.log("This service running to port " + port + ", and consume the database ITSNET.");
 });
